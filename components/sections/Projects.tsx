@@ -82,6 +82,7 @@ export default function Projects() {
           <div
             ref={scrollContainerRef}
             className="flex gap-12 overflow-x-auto pb-4 pl-4 snap-x snap-mandatory scrollbar-hide"
+            style={{ touchAction: 'pan-x' }}
           >
             {projects.map((project, index) => {
               return (
