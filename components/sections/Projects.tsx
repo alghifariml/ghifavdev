@@ -35,9 +35,30 @@ export default function Projects() {
     // Listen to window resize
     window.addEventListener("resize", checkScrollPosition);
 
+    // Prevent vertical scroll on touch devices (especially Safari)
+    let startY = 0;
+    const handleTouchStart = (e: TouchEvent) => {
+      startY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      const currentY = e.touches[0].clientY;
+      const deltaY = Math.abs(currentY - startY);
+
+      // If vertical movement is detected, prevent it
+      if (deltaY > 5) {
+        e.preventDefault();
+      }
+    };
+
+    container.addEventListener("touchstart", handleTouchStart, { passive: true });
+    container.addEventListener("touchmove", handleTouchMove, { passive: false });
+
     return () => {
       container.removeEventListener("scroll", checkScrollPosition);
       window.removeEventListener("resize", checkScrollPosition);
+      container.removeEventListener("touchstart", handleTouchStart);
+      container.removeEventListener("touchmove", handleTouchMove);
     };
   }, []);
 
