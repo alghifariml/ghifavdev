@@ -1,0 +1,78 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { personalInfo } from "@/data/portfolio";
+import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+
+export default function Hero() {
+  return (
+    <section
+      id="about"
+      className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-purple-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 pt-20"
+    >
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6">
+              {personalInfo.name}
+            </h1>
+            <p className="text-2xl sm:text-3xl text-blue-600 dark:text-blue-400 font-semibold mb-8">
+              {personalInfo.title}
+            </p>
+          </motion.div>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-12 leading-relaxed"
+          >
+            {personalInfo.summary}
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="flex justify-center space-x-6 mb-12"
+          >
+            <a
+              href={`mailto:${personalInfo.email}`}
+              className="inline-flex items-center px-6 py-3 bg-blue-600 dark:bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-lg hover:shadow-xl"
+            >
+              <Mail className="h-5 w-5 mr-2" />
+              Get in Touch
+            </a>
+            <a
+              href={`https://${personalInfo.github}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 bg-gray-900 dark:bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-800 dark:hover:bg-gray-600 transition-colors shadow-lg hover:shadow-xl"
+            >
+              <Github className="h-5 w-5 mr-2" />
+              GitHub
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+            className="flex justify-center"
+          >
+            <a
+              href="#experience"
+              className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors animate-bounce"
+            >
+              <ArrowDown className="h-8 w-8" />
+            </a>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
