@@ -81,19 +81,19 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="projects" className="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-3 lg:mb-4">
             Key Projects
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400">
             Highlighting my most impactful work
           </p>
         </motion.div>
@@ -102,7 +102,7 @@ export default function Projects() {
         <div className="relative -mr-4 sm:-mr-6 lg:-mr-12">
           <div
             ref={scrollContainerRef}
-            className="flex gap-12 overflow-x-auto pb-4 pl-4 snap-x snap-mandatory scrollbar-hide"
+            className="flex gap-4 sm:gap-6 lg:gap-12 overflow-x-auto pb-4 pl-4 snap-x snap-mandatory scrollbar-hide"
             style={{ touchAction: 'pan-x' }}
           >
             {projects.map((project, index) => {
@@ -114,11 +114,11 @@ export default function Projects() {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   onClick={() => setSelectedProject(project)}
-                  className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden cursor-pointer group relative flex-shrink-0 w-[340px] sm:w-[380px] h-[580px] snap-start"
+                  className="bg-white dark:bg-gray-800 rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer group relative shrink-0 w-[280px] sm:w-[340px] lg:w-[380px] h-[480px] sm:h-[540px] lg:h-[580px] snap-start shadow-sm hover:shadow-md transition-shadow"
                 >
                   {/* Image Section */}
                   {project.image && (
-                    <div className="relative h-96 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 overflow-hidden">
+                    <div className="relative h-64 sm:h-80 lg:h-96 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 overflow-hidden">
                       <Image
                         src={project.image}
                         alt={project.name}
@@ -133,18 +133,18 @@ export default function Projects() {
                   )}
 
                   {/* Content Section */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <div className="p-4 sm:p-5 lg:p-6">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2 sm:mb-3 pr-8">
                       {project.name}
                     </h3>
 
-                    <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-4 line-clamp-3 leading-relaxed">
                       {project.description}
                     </p>
 
                     {/* CTA */}
-                    <button className="absolute bottom-6 right-6 w-9 h-9 bg-gray-900 dark:bg-gray-700 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors">
-                      <Plus className="w-4 h-4 text-white" />
+                    <button className="absolute bottom-4 sm:bottom-5 lg:bottom-6 right-4 sm:right-5 lg:right-6 w-8 h-8 sm:w-9 sm:h-9 bg-gray-900 dark:bg-gray-700 rounded-full flex items-center justify-center group-hover:bg-blue-600 transition-colors">
+                      <Plus className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                     </button>
                   </div>
                 </motion.div>

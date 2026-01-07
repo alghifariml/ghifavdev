@@ -190,16 +190,22 @@ export const skills = {
     "R",
     "Python"
   ],
-  "Frameworks & Tools": [
+  "Frameworks & Libraries": [
     "Laravel",
     "ReactJS",
     "TailwindCSS",
     "Bootstrap 5",
-    "Git",
-    "GitHub",
-    "GitLab",
-    "Docker",
     "Vite"
+  ],
+  "DevOps & Infrastructure": [
+    "Docker",
+    "CI/CD Pipelines",
+    "Git & GitHub",
+    "GitLab",
+    "CyberPanel",
+    "cPanel",
+    "Ubuntu Server",
+    "VPS Management"
   ],
   "Databases": [
     "MySQL",
@@ -220,6 +226,7 @@ export const skills = {
   ],
   "Other CMS/Builders": [
     "Wix",
+    "Squarespace",
     "Zyro Builder"
   ]
 };
